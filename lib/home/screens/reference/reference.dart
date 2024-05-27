@@ -8,10 +8,16 @@ class reference extends StatefulWidget {
   State<reference> createState() => _referenceState();
 }
 
-Reference _reference = Reference();
 GlobalKey<FormState> formkey = GlobalKey();
 
 class _referenceState extends State<reference> {
+  void _clearText(int index) {
+    refList[index].txtEMAIL!.clear();
+    refList[index].txtRef!.clear();
+    refList[index].txtComp!.clear();
+    refList[index].txtJobTitle!.clear();
+    refList[index].txtPHONE!.clear();
+  }
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -55,200 +61,22 @@ class _referenceState extends State<reference> {
                 child: Form(
                   key: formkey,
                   child: Column(
-                    children: [
-                      Container(
-                        height: height * 0.800,
-                        width: double.infinity,
-                        margin: EdgeInsets.all(15),
-                        color: Color(0xFF363863),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Reference',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: height * 0.025),
-                                ),
-                                IconButton(
-                                    onPressed: () {},
-                                    icon: Icon(
-                                      Icons.delete,
-                                      color: Colors.white,
-                                      size: 30,
-                                    ))
-                              ],
-                            ),
-                            Text(
-                              "Referee's Name",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: height * 0.025),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 8.0),
-                              child: TextFormField(
-                                  controller: _reference.txtRefere,
-                                  style: TextStyle(color: Colors.white),
-                                  textInputAction: TextInputAction.next,
-                                  decoration: InputDecoration(
-                                    enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
-                                        borderSide: BorderSide(
-                                            color: Color(0xFF6F73C8),
-                                            width: 2)),
-                                    focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
-                                        borderSide: BorderSide(
-                                            color: Color(0xFF6F73C8),
-                                            width: 2.5)),
-                                  )),
-                            ),
-                            Text(
-                              'Job title',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: height * 0.025),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 8.0),
-                              child: TextFormField(
-                                  controller: _reference.txtjob,
-                                  style: TextStyle(color: Colors.white),
-                                  textInputAction: TextInputAction.next,
-                                  decoration: InputDecoration(
-                                    enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
-                                        borderSide: BorderSide(
-                                            color: Color(0xFF6F73C8),
-                                            width: 2)),
-                                    focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
-                                        borderSide: BorderSide(
-                                            color: Color(0xFF6F73C8),
-                                            width: 2.5)),
-                                  )),
-                            ),
-                            Text(
-                              'Company Name',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: height * 0.025),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 8.0),
-                              child: TextFormField(
-                                  controller: _reference.txtCompanyName,
-                                  style: TextStyle(color: Colors.white),
-                                  textInputAction: TextInputAction.next,
-                                  decoration: InputDecoration(
-                                    enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
-                                        borderSide: BorderSide(
-                                            color: Color(0xFF6F73C8),
-                                            width: 2)),
-                                    focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
-                                        borderSide: BorderSide(
-                                            color: Color(0xFF6F73C8),
-                                            width: 2.5)),
-                                  )),
-                            ),
-                            Text(
-                              'Email',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: height * 0.025),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 8.0),
-                              child: TextFormField(
-                                  controller: _reference.txtEMAIL,
-                                  style: TextStyle(color: Colors.white),
-                                  keyboardType: TextInputType.number,
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
-                                        borderSide: BorderSide(
-                                            color: Color(0xFF6F73C8),
-                                            width: 2)),
-                                    enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
-                                        borderSide: BorderSide(
-                                            color: Color(0xFF6F73C8),
-                                            width: 2)),
-                                    focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
-                                        borderSide: BorderSide(
-                                            color: Color(0xFF6F73C8),
-                                            width: 2.5)),
-                                  ),
-                                  validator: (value) {
-                                    if (value!.isEmpty || value == null) {
-                                      return "Err:Can't be left blank!";
-                                    } else if (value.startsWith('@gmail.com')) {
-                                      return 'Err:Email!';
-                                    } else if (!value.contains('@gmail.com')) {
-                                      return 'Err:Email" !';
-                                    } else if (!value.endsWith('@gmail.com')) {
-                                      return 'Err:Email!';
-                                    } else if (value.contains(' ')) {
-                                      return 'Err:Email!';
-                                    } else if (value != value.toLowerCase()) {
-                                      return 'Err:Email!';
-                                    }
-                                  }),
-                            ),
-                            Text(
-                              'Phone',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: height * 0.025),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 8.0),
-                              child: TextFormField(
-                                  controller: _reference.txtPHONE,
-                                  style: TextStyle(color: Colors.white),
-                                  keyboardType: TextInputType.number,
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
-                                        borderSide: BorderSide(
-                                            color: Color(0xFF6F73C8),
-                                            width: 2)),
-                                    enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
-                                        borderSide: BorderSide(
-                                            color: Color(0xFF6F73C8),
-                                            width: 2)),
-                                    focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
-                                        borderSide: BorderSide(
-                                            color: Color(0xFF6F73C8),
-                                            width: 2.5)),
-                                  ),
-                                  validator: (value) {
-                                    if (value!.isEmpty || value == null) {
-                                      return 'Err:Phone!';
-                                    } else if (value.length > 10 ||
-                                        value.length < 10) {
-                                      return 'Err:Phone!';
-                                    }
-                                  }),
-                            ),
-                          ],
-                        ),
+                    children: List.generate(refList.length, (index) => Container(
+                      height: height * 0.730,
+                      width: double.infinity,
+                      margin: EdgeInsets.all(15),
+                      color: Color(0xFF363863),
+                      child: buildColumn(
+                        height: height,
+                        width: width,
+                        index: index,
+                        controller1: refList[index].txtRef!,
+                        controller2: refList[index].txtJobTitle!,
+                        controller3: refList[index].txtComp!,
+                        controller4: refList[index].txtEMAIL!,
+                        controller5: refList[index].txtPHONE!,
                       ),
-                    ],
+                    ),)
                   ),
                 ),
               ),
@@ -271,7 +99,16 @@ class _referenceState extends State<reference> {
                 GestureDetector(
                   onTap: () {
                     if (formkey.currentState!.validate()) {
-                      Navigator.of(context).pushNamed('/detail');
+                      if(temp==1)
+                      {
+                        ch=0;
+                        Navigator.of(context).pushNamed('/detail');
+                      }
+                      else
+                      {
+                        ch=0;
+                        Navigator.of(context).pushNamed('/Pdf');
+                      }
                     }
                   },
                   child: Container(
@@ -300,7 +137,15 @@ class _referenceState extends State<reference> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    //   Navigator.of(context).pushNamed('/switch');
+                    setState(() {
+                      TextEditingController txtRef = TextEditingController();
+                      TextEditingController txtJobtitle = TextEditingController();
+                      TextEditingController txtComp = TextEditingController();
+                      TextEditingController txtEMAIL = TextEditingController();
+                      TextEditingController txtPHONE = TextEditingController();
+
+                      refList.add(refModel(txtComp: txtComp,txtEMAIL: txtEMAIL,txtJobTitle: txtJobtitle,txtPHONE: txtPHONE,txtRef: txtRef));
+                    });
                   },
                   child: Container(
                     height: height * 0.055,
@@ -327,7 +172,9 @@ class _referenceState extends State<reference> {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
                   child: Container(
                     height: height * 0.060,
                     width: double.infinity,
@@ -356,4 +203,252 @@ class _referenceState extends State<reference> {
       ),
     );
   }
+
+  Column buildColumn(
+      {required double height,
+        required double width,
+        required int index,
+        required TextEditingController controller1,
+        required TextEditingController controller2,
+        required TextEditingController controller3,
+        required TextEditingController controller4,
+        required TextEditingController controller5}
+      ) {
+    return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                '    Reference ${index + 1}',
+                                style: TextStyle(color: Colors.white, fontSize: height * 0.022),
+                              ),
+                              IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      if (index != 0) {
+                                        refList.removeAt(index);
+                                      } else {
+                                        _clearText(index);
+                                      }
+                                    });
+                                  },
+                                  icon: Icon(
+                                    Icons.delete,
+                                    color: Colors.white,
+                                    size: 25,
+                                  ))
+                            ],
+                          ),
+                          Text(
+                            "    Referee's Name",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: height * 0.022),
+                          ),
+                          Container(
+                            height: height*0.085,
+                            width: width*0.83,
+                            margin: EdgeInsets.only(left: 17,top: 5,bottom: 8),
+                            child: TextFormField(
+                                controller: controller1,
+                                style: TextStyle(color: Colors.white),
+                                textInputAction: TextInputAction.next,
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide:
+                                      BorderSide(color: Color(0xFF6F73C8), width: 2)),
+                                  enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide:
+                                      BorderSide(color: Color(0xFF6F73C8), width: 2)),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide:
+                                      BorderSide(color: Color(0xFF6F73C8), width: 2.5)),
+                                ),
+                                validator: (value) {
+                                  if (value!.isEmpty || value == null) {
+                                    return "Can't be left blank";
+                                  }
+                                }),
+                          ),
+                          Text(
+                            '    Job title',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: height * 0.022),
+                          ),
+                          Container(
+                            height: height*0.085,
+                            width: width*0.83,
+                            margin: EdgeInsets.only(left: 17,top: 5,bottom: 8),
+                            child: TextFormField(
+                                controller: controller2,
+                                style: TextStyle(color: Colors.white),
+                                textInputAction: TextInputAction.next,
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide:
+                                      BorderSide(color: Color(0xFF6F73C8), width: 2)),
+                                  enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide:
+                                      BorderSide(color: Color(0xFF6F73C8), width: 2)),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide:
+                                      BorderSide(color: Color(0xFF6F73C8), width: 2.5)),
+                                ),
+                                validator: (value) {
+                                  if (value!.isEmpty || value == null) {
+                                    return "Can't be left blank";
+                                  }
+                                }),
+                          ),
+                          Text(
+                            '    Company Name',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: height * 0.022),
+                          ),
+                          Container(
+                            height: height*0.085,
+                            width: width*0.83,
+                            margin: EdgeInsets.only(left: 17,top: 5,bottom: 8),
+                            child: TextFormField(
+                                controller: controller3,
+                                style: TextStyle(color: Colors.white),
+                                textInputAction: TextInputAction.next,
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide:
+                                      BorderSide(color: Color(0xFF6F73C8), width: 2)),
+                                  enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide:
+                                      BorderSide(color: Color(0xFF6F73C8), width: 2)),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide:
+                                      BorderSide(color: Color(0xFF6F73C8), width: 2.5)),
+                                ),
+                                validator: (value) {
+                                  if (value!.isEmpty || value == null) {
+                                    return "Can't be left blank";
+                                  }
+                                }),
+                          ),
+                          Text(
+                            '    Email',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: height * 0.022),
+                          ),
+                          Container(
+                            height: height*0.085,
+                            width: width*0.83,
+                            margin: EdgeInsets.only(left: 17,top: 5,bottom: 8),
+                            child: TextFormField(
+                                controller: controller4,
+                                style: TextStyle(color: Colors.white),
+                                textInputAction: TextInputAction.next,
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide:
+                                      BorderSide(color: Color(0xFF6F73C8), width: 2)),
+                                  enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide:
+                                      BorderSide(color: Color(0xFF6F73C8), width: 2)),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide:
+                                      BorderSide(color: Color(0xFF6F73C8), width: 2.5)),
+                                ),
+                                validator: (value) {
+                                  if (value!.isEmpty || value == null) {
+                                    return "Can't be left blank";
+                                  }else if (value.startsWith('@gmail.com')) {
+                                   return 'Err:Email!';
+                                  } else if (!value.contains('@gmail.com')) {
+                                   return 'Err:Email" !';
+                                  } else if (!value.endsWith('@gmail.com')) {
+                                   return 'Err:Email!';
+                                  } else if (value.contains(' ')) {
+                                    return 'Err:Email!';
+                                  } else if (value != value.toLowerCase()) {
+                                    return 'Err:Email!';
+                                  }
+                                }),
+                          ),
+                          Text(
+                            '    Phone',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: height * 0.022),
+                          ),
+                          Container(
+                            height: height*0.085,
+                            width: width*0.83,
+                            margin: EdgeInsets.only(left: 17,top: 5,bottom: 8),
+                            child: TextFormField(
+                              keyboardType: TextInputType.number,
+                                controller: controller5,
+                                style: TextStyle(color: Colors.white),
+                                textInputAction: TextInputAction.next,
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide:
+                                      BorderSide(color: Color(0xFF6F73C8), width: 2)),
+                                  enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide:
+                                      BorderSide(color: Color(0xFF6F73C8), width: 2)),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide:
+                                      BorderSide(color: Color(0xFF6F73C8), width: 2.5)),
+                                ),
+                                validator: (value) {
+                                  if (value!.isEmpty || value == null) {
+                                    return "Can't be left blank";
+                                  }
+                                }),
+                          ),
+                        ],
+                      );
+  }
 }
+
+class refModel {
+  TextEditingController? txtRef;
+  TextEditingController? txtJobTitle;
+  TextEditingController? txtComp;
+  TextEditingController? txtEMAIL;
+  TextEditingController? txtPHONE;
+
+  refModel({this.txtPHONE, this.txtEMAIL, this.txtComp, this.txtJobTitle,this.txtRef});
+}
+
+List<refModel> refList = [
+  refModel(
+      txtRef: txtRef,
+      txtJobTitle: txtJobtitle,
+      txtComp: txtComp,
+      txtPHONE: txtPHONE,
+      txtEMAIL: txtEMAIL),
+];
+
+TextEditingController txtRef = TextEditingController();
+TextEditingController txtJobtitle = TextEditingController();
+TextEditingController txtComp = TextEditingController();
+TextEditingController txtEMAIL = TextEditingController();
+TextEditingController txtPHONE = TextEditingController();
+

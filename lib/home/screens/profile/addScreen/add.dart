@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:resume_builder_app/home/utills/Lists/switchList.dart';
-import 'package:resume_builder_app/home/utills/controllers/controllers.dart';
 
-class switchScreen extends StatefulWidget {
-  const switchScreen({super.key});
+import '../../../utills/controllers/controllers.dart';
+class addScreen extends StatefulWidget {
+  const addScreen({super.key});
 
   @override
-  State<switchScreen> createState() => _switchScreenState();
+  State<addScreen> createState() => _addScreenState();
 }
 
-class _switchScreenState extends State<switchScreen> {
-
+class _addScreenState extends State<addScreen> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -28,7 +26,7 @@ class _switchScreenState extends State<switchScreen> {
             )),
         backgroundColor: Color(0xFF363863),
         title: Text(
-          'Add More Personal Info',
+          'Add more Section',
           style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w500,
@@ -40,23 +38,23 @@ class _switchScreenState extends State<switchScreen> {
         child: Column(
           children: [
             Text(
-              'Click switch button to Enable / Disable any profile fields',
+              'Click Toggle/Switch button to add/remove the section',
               style:
-                  TextStyle(color: Color(0xFF8F92D1), fontSize: height * 0.025),
+              TextStyle(color: Color(0xFF8F92D1), fontSize: height * 0.023),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Photo (Optional)',
+                  'Interest',
                   style:
-                      TextStyle(color: Colors.white, fontSize: height * 0.023),
+                  TextStyle(color: Colors.white, fontSize: height * 0.023),
                 ),
                 Switch(
-                    value: photo,
+                    value: interest,
                     onChanged: (value) {
                       setState(() {
-                        photo = value;
+                        interest = value;
                       });
                     })
               ],
@@ -65,15 +63,15 @@ class _switchScreenState extends State<switchScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Date of Birth',
+                  'Awards',
                   style:
-                      TextStyle(color: Colors.white, fontSize: height * 0.023),
+                  TextStyle(color: Colors.white, fontSize: height * 0.023),
                 ),
                 Switch(
-                    value: dob,
+                    value: award,
                     onChanged: (value) {
                       setState(() {
-                        dob = value;
+                        award = value;
                       });
                     })
               ],
@@ -82,15 +80,15 @@ class _switchScreenState extends State<switchScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Nationality',
+                  'Activities',
                   style:
-                      TextStyle(color: Colors.white, fontSize: height * 0.023),
+                  TextStyle(color: Colors.white, fontSize: height * 0.023),
                 ),
                 Switch(
-                    value: nationality,
+                    value: activities,
                     onChanged: (value) {
                       setState(() {
-                        nationality = value;
+                        activities = value;
                       });
                     })
               ],
@@ -99,15 +97,15 @@ class _switchScreenState extends State<switchScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Marital Status',
+                  'Publication',
                   style:
-                      TextStyle(color: Colors.white, fontSize: height * 0.023),
+                  TextStyle(color: Colors.white, fontSize: height * 0.023),
                 ),
                 Switch(
-                    value: status,
+                    value: publication,
                     onChanged: (value) {
                       setState(() {
-                        status = value;
+                        publication = value;
                       });
                     })
               ],
@@ -116,15 +114,15 @@ class _switchScreenState extends State<switchScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Website',
+                  'Languages',
                   style:
-                      TextStyle(color: Colors.white, fontSize: height * 0.023),
+                  TextStyle(color: Colors.white, fontSize: height * 0.023),
                 ),
                 Switch(
-                    value: web,
+                    value: languages,
                     onChanged: (value) {
                       setState(() {
-                        web = value;
+                        languages = value;
                       });
                     })
               ],
@@ -133,15 +131,15 @@ class _switchScreenState extends State<switchScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Linkedin',
+                  'Add Info',
                   style:
-                      TextStyle(color: Colors.white, fontSize: height * 0.023),
+                  TextStyle(color: Colors.white, fontSize: height * 0.023),
                 ),
                 Switch(
-                    value: linkedin,
+                    value: info,
                     onChanged: (value) {
                       setState(() {
-                        linkedin = value;
+                        info = value;
                       });
                     })
               ],
@@ -150,15 +148,15 @@ class _switchScreenState extends State<switchScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Facebook',
+                  'Projects',
                   style:
-                      TextStyle(color: Colors.white, fontSize: height * 0.023),
+                  TextStyle(color: Colors.white, fontSize: height * 0.023),
                 ),
                 Switch(
-                    value: facebook,
+                    value: projects,
                     onChanged: (value) {
                       setState(() {
-                        facebook = value;
+                        projects = value;
                       });
                     })
               ],
@@ -167,21 +165,38 @@ class _switchScreenState extends State<switchScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Twitter',
+                  'Reference',
                   style:
-                      TextStyle(color: Colors.white, fontSize: height * 0.023),
+                  TextStyle(color: Colors.white, fontSize: height * 0.023),
                 ),
                 Switch(
-                    value: twitter,
+                    value: reference,
                     onChanged: (value) {
                       setState(() {
-                        twitter = value;
+                        reference = value;
+                      });
+                    })
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Signature',
+                  style:
+                  TextStyle(color: Colors.white, fontSize: height * 0.023),
+                ),
+                Switch(
+                    value: signature,
+                    onChanged: (value) {
+                      setState(() {
+                        signature = value;
                       });
                     })
               ],
             ),
             SizedBox(
-              height: height * 0.210,
+              height: height * 0.175,
             ),
             GestureDetector(
               onTap: () {

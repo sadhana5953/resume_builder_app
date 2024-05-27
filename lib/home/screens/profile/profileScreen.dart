@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:resume_builder_app/home/utills/Lists/switchList.dart';
+import 'package:resume_builder_app/home/utills/controllers/controllers.dart';
 
 class profileScreen extends StatefulWidget {
   const profileScreen({super.key});
@@ -52,9 +53,9 @@ class _profileScreenState extends State<profileScreen> {
                 child: Column(
                   children: [
                     Container(
-                      height: 400,
+                      height: 350,
                       width: double.infinity,
-                      margin: EdgeInsets.only(top: 30,bottom: 20,left: 10,right: 10),
+                      margin: EdgeInsets.only(top: 30,bottom: 15,left: 10,right: 10),
                       padding: EdgeInsets.only(left: 5),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
@@ -146,9 +147,9 @@ class _profileScreenState extends State<profileScreen> {
                       ),
                     ),
                     Container(
-                      height: 400,
+                      height: 350,
                       width: double.infinity,
-                      margin: EdgeInsets.all(10),
+                      margin: EdgeInsets.only(top: 30,bottom: 15,left: 10,right: 10),
                       padding: EdgeInsets.only(left: 5),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
@@ -166,46 +167,52 @@ class _profileScreenState extends State<profileScreen> {
                           ),
                           Wrap(
                             children: [
-                              buildContainer(
-                                  height: height,
-                                  width: width,
-                                  icons: Icons.person,
-                                  icons2: Icons.arrow_circle_right,
-                                  text: 'Personal'),
-                              buildContainer(
-                                  height: height,
-                                  width: width,
-                                  icons: Icons.history_edu,
-                                  icons2: Icons.arrow_circle_right,
-                                  text: 'Education'),
-                              buildContainer(
-                                  height: height,
-                                  width: width,
-                                  icons: Icons.history_edu,
-                                  icons2: Icons.arrow_circle_right,
-                                  text: 'Experience'),
+                              GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context).pushNamed('/language');
+                                  },
+                                  child: buildContainer(
+                                      height: height,
+                                      width: width,
+                                      icons: Icons.language,
+                                      icons2: Icons.arrow_circle_right,
+                                      text: 'Languages')),
+                              GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context).pushNamed('/inte');
+                                  },
+                                  child: buildContainer(
+                                      height: height,
+                                      width: width,
+                                      icons: Icons.favorite,
+                                      icons2: Icons.arrow_circle_right,
+                                      text: 'Interests')),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context)
+                                      .pushNamed('/act');
+                                },
+                                child: buildContainer(
+                                    height: height,
+                                    width: width,
+                                    icons: Icons.local_activity,
+                                    icons2: Icons.arrow_circle_right,
+                                    text: 'Activities'),
+                              ),
                               SizedBox(
                                 height: height * 0.020,
                                 width: double.infinity,
                               ),
-                              buildContainer(
-                                  height: height,
-                                  width: width,
-                                  icons: Icons.history_edu,
-                                  icons2: Icons.arrow_circle_right,
-                                  text: 'Skill'),
-                              buildContainer(
-                                  height: height,
-                                  width: width,
-                                  icons: Icons.history_edu,
-                                  icons2: Icons.arrow_circle_right,
-                                  text: 'Objective'),
-                              buildContainer(
-                                  height: height,
-                                  width: width,
-                                  icons: Icons.history_edu,
-                                  icons2: Icons.arrow_circle_right,
-                                  text: 'Reference'),
+                              GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context).pushNamed('/add');
+                                  },
+                                  child: buildContainer(
+                                      height: height,
+                                      width: width,
+                                      icons: Icons.add_circle_rounded,
+                                      icons2: Icons.arrow_circle_right,
+                                      text: 'Add')),
                             ],
                           )
                         ],
@@ -217,7 +224,18 @@ class _profileScreenState extends State<profileScreen> {
             ),
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              if(temp==1)
+              {
+                ch=1;
+                Navigator.of(context).pushNamed('/detail');
+              }
+              else
+              {
+                ch=1;
+                Navigator.of(context).pushNamed('/Pdf');
+              }
+            },
             child: Container(
               height: height * 0.060,
               width: double.infinity,

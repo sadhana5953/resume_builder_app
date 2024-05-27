@@ -274,8 +274,8 @@ class _exampleState extends State<example> {
 }
 
 List listOftext = [
-  'I am a highly driven recent business school graduate seeking a full-time position in finance where I can lend my knowledge of market analytics to help your organization improve profitability.',
-  'I seek challenging opportunities where I can fully use my skills for the success of the organization.',
-  'Dedicated and experienced accounting professional with proven success managing finances for mid-size commercial organizations. Seeking an opportunity to use my decade of experience to serve the state goverment.',
-  "To obtain an entry-level [industry] position at a respected organization and utilize the educational qualifications I've obtained at [name of collage or university].",
+  'I am a highly driven recent business  school graduate seeking a full-time  position in  finance where I can lend  my knowledge of  market analytics to help  your organization  improve profitability.',
+  'I seek challenging opportunities where I can  fully use my skills for the success of the organization.',
+  'Dedicated and experienced accounting  professional with proven success managing  finances for mid-size commercial  organizations. Seeking an opportunity to  use my decade of experience to serve the  state goverment.',
+  "To obtain an entry-level [industry] position  at a respected organization and utilize the  educational qualifications I've obtained at  [name of collage or university].",
 ];

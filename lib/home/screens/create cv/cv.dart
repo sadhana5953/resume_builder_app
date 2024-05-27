@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:resume_builder_app/home/utills/controllers/controllers.dart';
 
 class cv extends StatefulWidget {
   const cv({super.key});
@@ -46,6 +47,7 @@ class _cvState extends State<cv> {
               ),
               GestureDetector(
                 onTap: () {
+                  temp=1;
                   Navigator.of(context).pushNamed('/template');
                 },
                 child: Container(
@@ -62,7 +64,8 @@ class _cvState extends State<cv> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context).pushNamed('/template');
+                  temp=2;
+                  Navigator.of(context).pushNamed('/Template');
                 },
                 child: Container(
                   height: height * 0.3,
@@ -78,7 +81,8 @@ class _cvState extends State<cv> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context).pushNamed('/template');
+                  temp=2;
+                  Navigator.of(context).pushNamed('/Template');
                 },
                 child: Container(
                   height: height * 0.3,
@@ -94,6 +98,7 @@ class _cvState extends State<cv> {
               ),
               GestureDetector(
                 onTap: () {
+                  temp=1;
                   Navigator.of(context).pushNamed('/template');
                 },
                 child: Container(
@@ -110,6 +115,7 @@ class _cvState extends State<cv> {
               ),
               GestureDetector(
                 onTap: () {
+                  temp=1;
                   Navigator.of(context).pushNamed('/template');
                 },
                 child: Container(
@@ -126,7 +132,8 @@ class _cvState extends State<cv> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context).pushNamed('/template');
+                  temp=2;
+                  Navigator.of(context).pushNamed('/Template');
                 },
                 child: Container(
                   height: height * 0.3,

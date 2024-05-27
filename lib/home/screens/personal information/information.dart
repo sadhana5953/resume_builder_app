@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:resume_builder_app/home/utills/Lists/switchList.dart';
 import 'package:resume_builder_app/home/utills/controllers/controllers.dart';
 
 ImagePicker imagePicker = ImagePicker();
@@ -29,6 +30,7 @@ class _informationScreenState extends State<informationScreen> {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: Color(0xFF363863),
       appBar: AppBar(
@@ -298,7 +300,16 @@ class _informationScreenState extends State<informationScreen> {
                 GestureDetector(
                   onTap: () {
                     if (formkey.currentState!.validate()) {
-                      Navigator.of(context).pushNamed('/detail');
+                      if(temp==1)
+                      {
+                        ch=0;
+                        Navigator.of(context).pushNamed('/detail');
+                      }
+                      else
+                      {
+                        ch=0;
+                        Navigator.of(context).pushNamed('/Pdf');
+                      }
                     }
                   },
                   child: Container(
@@ -354,7 +365,9 @@ class _informationScreenState extends State<informationScreen> {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
                   child: Container(
                     height: height * 0.060,
                     width: double.infinity,

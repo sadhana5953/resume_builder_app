@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:resume_builder_app/home/utills/controllers/controllers.dart';
 
@@ -152,27 +153,41 @@ class _SkillScreenState extends State<SkillScreen> {
             alignment: Alignment.center,
             child: Wrap(
               children: [
-                Container(
-                  height: height * 0.055,
-                  width: width * 0.450,
-                  margin: EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Color(0xFF6F73C8), width: 2),
-                      borderRadius: BorderRadius.circular(10)),
-                  alignment: Alignment.center,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.remove_red_eye_rounded,
-                        color: Colors.white,
-                      ),
-                      Text(
-                        '  Preview',
-                        style: TextStyle(
-                            color: Colors.white, fontSize: height * 0.025),
-                      ),
-                    ],
+                GestureDetector(
+                  onTap: (){
+                    if(temp==1)
+                      {
+                        ch=0;
+                        Navigator.of(context).pushNamed('/detail');
+                      }
+                    else
+                      {
+                        ch=0;
+                        Navigator.of(context).pushNamed('/Pdf');
+                      }
+                  }
+                  ,child: Container(
+                    height: height * 0.055,
+                    width: width * 0.450,
+                    margin: EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Color(0xFF6F73C8), width: 2),
+                        borderRadius: BorderRadius.circular(10)),
+                    alignment: Alignment.center,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.remove_red_eye_rounded,
+                          color: Colors.white,
+                        ),
+                        Text(
+                          '  Preview',
+                          style: TextStyle(
+                              color: Colors.white, fontSize: height * 0.025),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 GestureDetector(
@@ -207,7 +222,9 @@ class _SkillScreenState extends State<SkillScreen> {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
                   child: Container(
                     height: height * 0.060,
                     width: double.infinity,

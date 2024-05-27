@@ -11,7 +11,7 @@ class template extends StatefulWidget {
 
 class _templateState extends State<template> {
 
-  Color _selectedColor = Colors.indigo;
+  Color _selectedColor = Colors.blue;
    List<Color> _colors = [Colors.red, Colors.indigo, Colors.blue, Colors.deepPurpleAccent, Colors.black38];
 
   @override

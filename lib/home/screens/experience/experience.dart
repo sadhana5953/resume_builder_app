@@ -8,9 +8,16 @@ class experience extends StatefulWidget {
   State<experience> createState() => _experienceState();
 }
 
-Experience _experience = Experience();
-
 class _experienceState extends State<experience> {
+
+  void _clearText(int index) {
+    expList[index].txtStart!.clear();
+    expList[index].txtJob!.clear();
+    expList[index].txtEnd!.clear();
+    expList[index].txtDetail!.clear();
+    expList[index].txtComapny!.clear();
+  }
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -52,178 +59,21 @@ class _experienceState extends State<experience> {
               child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Column(
-                  children: [
-                    Container(
-                      height: height * 0.640,
-                      width: double.infinity,
-                      margin: EdgeInsets.all(15),
-                      color: Color(0xFF363863),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'Experience',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: height * 0.025),
-                              ),
-                              IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    Icons.delete,
-                                    color: Colors.white,
-                                    size: 30,
-                                  ))
-                            ],
-                          ),
-                          Text(
-                            '\nCompany Name',
-                            style: TextStyle(
-                                color: Colors.white, fontSize: height * 0.025),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 8.0),
-                            child: TextFormField(
-                                controller: _experience.txtCompany,
-                                style: TextStyle(color: Colors.white),
-                                textInputAction: TextInputAction.next,
-                                decoration: InputDecoration(
-                                  hintText: '  Company name',
-                                  hintStyle:
-                                      TextStyle(color: Color(0xFF6B6D72)),
-                                  enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(5),
-                                      borderSide: BorderSide(
-                                          color: Color(0xFF6F73C8), width: 2)),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(5),
-                                      borderSide: BorderSide(
-                                          color: Color(0xFF6F73C8),
-                                          width: 2.5)),
-                                )),
-                          ),
-                          Text(
-                            'Job title',
-                            style: TextStyle(
-                                color: Colors.white, fontSize: height * 0.025),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 8.0),
-                            child: TextFormField(
-                                controller: _experience.txtJob,
-                                style: TextStyle(color: Colors.white),
-                                textInputAction: TextInputAction.next,
-                                decoration: InputDecoration(
-                                  hintText: '  Job Title',
-                                  hintStyle:
-                                      TextStyle(color: Color(0xFF6B6D72)),
-                                  enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(5),
-                                      borderSide: BorderSide(
-                                          color: Color(0xFF6F73C8), width: 2)),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(5),
-                                      borderSide: BorderSide(
-                                          color: Color(0xFF6F73C8),
-                                          width: 2.5)),
-                                )),
-                          ),
-                          Text(
-                            ' Start Date                End Date',
-                            style: TextStyle(
-                                color: Colors.white, fontSize: height * 0.025),
-                          ),
-                          Row(
-                            children: [
-                              Container(
-                                height: height * 0.080,
-                                width: width * 0.445,
-                                margin: EdgeInsets.only(
-                                    top: 8, bottom: 8, right: 5),
-                                child: TextFormField(
-                                    controller: _experience.txtStart,
-                                    style: TextStyle(color: Colors.white),
-                                    textInputAction: TextInputAction.next,
-                                    decoration: InputDecoration(
-                                      hintText: ' dd/mm/yy...',
-                                      hintStyle:
-                                          TextStyle(color: Color(0xFF6B6D72)),
-                                      enabledBorder: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                          borderSide: BorderSide(
-                                              color: Color(0xFF6F73C8),
-                                              width: 2)),
-                                      focusedBorder: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                          borderSide: BorderSide(
-                                              color: Color(0xFF6F73C8),
-                                              width: 2.5)),
-                                    )),
-                              ),
-                              Container(
-                                height: height * 0.080,
-                                width: width * 0.445,
-                                margin:
-                                    EdgeInsets.only(top: 8, bottom: 8, left: 5),
-                                child: TextFormField(
-                                    controller: _experience.txtEnd,
-                                    style: TextStyle(color: Colors.white),
-                                    textInputAction: TextInputAction.next,
-                                    decoration: InputDecoration(
-                                      hintText: ' dd/mm/yy...',
-                                      hintStyle:
-                                          TextStyle(color: Color(0xFF6B6D72)),
-                                      enabledBorder: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                          borderSide: BorderSide(
-                                              color: Color(0xFF6F73C8),
-                                              width: 2)),
-                                      focusedBorder: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                          borderSide: BorderSide(
-                                              color: Color(0xFF6F73C8),
-                                              width: 2.5)),
-                                    )),
-                              ),
-                            ],
-                          ),
-                          Text(
-                            'Detail',
-                            style: TextStyle(
-                                color: Colors.white, fontSize: height * 0.025),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 8.0),
-                            child: TextFormField(
-                                controller: _experience.txtDetail,
-                                style: TextStyle(color: Colors.white),
-                                keyboardType: TextInputType.number,
-                                decoration: InputDecoration(
-                                  hintText: '  Detail',
-                                  hintStyle:
-                                      TextStyle(color: Color(0xFF6B6D72)),
-                                  enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(5),
-                                      borderSide: BorderSide(
-                                          color: Color(0xFF6F73C8), width: 2)),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(5),
-                                      borderSide: BorderSide(
-                                          color: Color(0xFF6F73C8),
-                                          width: 2.5)),
-                                )),
-                          ),
-                        ],
-                      ),
+                  children: List.generate(expList.length, (index) => Container(
+                    height: height * 0.600,
+                    width: double.infinity,
+                    margin: EdgeInsets.all(15),
+                    color: Color(0xFF363863),
+                    child: buildColumn( height: height,
+                      width: width,
+                      index: index,
+                      controller1: expList[index].txtComapny!,
+                      controller2: expList[index].txtJob!,
+                      controller3: expList[index].txtStart!,
+                      controller4: expList[index].txtEnd!,
+                      controller5: expList[index].txtDetail!,
                     ),
-                  ],
+                  ),)
                 ),
               ),
             ),
@@ -244,7 +94,16 @@ class _experienceState extends State<experience> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pushNamed('/detail');
+                    if(temp==1)
+                    {
+                      ch=0;
+                      Navigator.of(context).pushNamed('/detail');
+                    }
+                    else
+                    {
+                      ch=0;
+                      Navigator.of(context).pushNamed('/Pdf');
+                    }
                   },
                   child: Container(
                     height: height * 0.055,
@@ -272,7 +131,15 @@ class _experienceState extends State<experience> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    //   Navigator.of(context).pushNamed('/switch');
+                    setState(() {
+                      TextEditingController txtComapny = TextEditingController();
+                      TextEditingController txtJob = TextEditingController();
+                      TextEditingController txtStart = TextEditingController();
+                      TextEditingController txtEnd = TextEditingController();
+                      TextEditingController txtDetail = TextEditingController();
+
+                      expList.add(expModel(txtComapny: txtComapny,txtDetail: txtDetail,txtEnd: txtEnd,txtJob: txtJob,txtStart: txtStart));
+                    });
                   },
                   child: Container(
                     height: height * 0.055,
@@ -299,7 +166,9 @@ class _experienceState extends State<experience> {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
                   child: Container(
                     height: height * 0.060,
                     width: double.infinity,
@@ -328,4 +197,214 @@ class _experienceState extends State<experience> {
       ),
     );
   }
+
+  Column buildColumn({required double height,
+    required double width,
+    required int index,
+    required TextEditingController controller1,
+    required TextEditingController controller2,
+    required TextEditingController controller3,
+    required TextEditingController controller4,
+    required TextEditingController controller5,}) {
+    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              '    Experience ${index+1}',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: height * 0.022),
+                            ),
+                            IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    if (index != 0) {
+                                      expList.removeAt(index);
+                                    } else {
+                                      _clearText(index);
+                                    }
+                                  });
+                                },
+                                icon: Icon(
+                                  Icons.delete,
+                                  color: Colors.white,
+                                  size: 25,
+                                ))
+                          ],
+                        ),
+                        Text(
+                          '    Company Name',
+                          style: TextStyle(
+                              color: Colors.white, fontSize: height * 0.022),
+                        ),
+                        Container(
+                          height: height*0.085,
+                          width: width*0.83,
+                          margin: EdgeInsets.only(left: 17,top: 5,bottom: 8),
+                          child: TextFormField(
+                              controller: controller1,
+                              style: TextStyle(color: Colors.white),
+                              textInputAction: TextInputAction.next,
+                              decoration: InputDecoration(
+                                hintText: '  Company name',
+                                hintStyle:
+                                    TextStyle(color: Color(0xFF6B6D72)),
+                                enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                    borderSide: BorderSide(
+                                        color: Color(0xFF6F73C8), width: 2)),
+                                focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                    borderSide: BorderSide(
+                                        color: Color(0xFF6F73C8),
+                                        width: 2.5)),
+                              )),
+                        ),
+                        Text(
+                          '    Job title',
+                          style: TextStyle(
+                              color: Colors.white, fontSize: height * 0.022),
+                        ),
+                        Container(
+                          height: height*0.085,
+                          width: width*0.83,
+                          margin: EdgeInsets.only(left: 17,top: 5,bottom: 8),
+                          child: TextFormField(
+                              controller: controller2,
+                              style: TextStyle(color: Colors.white),
+                              textInputAction: TextInputAction.next,
+                              decoration: InputDecoration(
+                                hintText: '  Job Title',
+                                hintStyle:
+                                    TextStyle(color: Color(0xFF6B6D72)),
+                                enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                    borderSide: BorderSide(
+                                        color: Color(0xFF6F73C8), width: 2)),
+                                focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                    borderSide: BorderSide(
+                                        color: Color(0xFF6F73C8),
+                                        width: 2.5)),
+                              )),
+                        ),
+                        Text(
+                          '     Start Date                End Date',
+                          style: TextStyle(
+                              color: Colors.white, fontSize: height * 0.022),
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              height: height*0.085,
+                              width: width*0.42,
+                              margin: EdgeInsets.only(left: 15,top: 5,bottom: 8),
+                              child: TextFormField(
+                                  controller: controller3,
+                                  style: TextStyle(color: Colors.white),
+                                  textInputAction: TextInputAction.next,
+                                  decoration: InputDecoration(
+                                    hintText: ' dd/mm/yy...',
+                                    hintStyle:
+                                        TextStyle(color: Color(0xFF6B6D72)),
+                                    enabledBorder: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(5),
+                                        borderSide: BorderSide(
+                                            color: Color(0xFF6F73C8),
+                                            width: 2)),
+                                    focusedBorder: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(5),
+                                        borderSide: BorderSide(
+                                            color: Color(0xFF6F73C8),
+                                            width: 2.5)),
+                                  )),
+                            ),
+                            Container(
+                              height: height*0.085,
+                              width: width*0.42,
+                              margin: EdgeInsets.only(left: 5,top: 5,bottom: 8),
+                              child: TextFormField(
+                                  controller: controller4,
+                                  style: TextStyle(color: Colors.white),
+                                  textInputAction: TextInputAction.next,
+                                  decoration: InputDecoration(
+                                    hintText: ' dd/mm/yy...',
+                                    hintStyle:
+                                        TextStyle(color: Color(0xFF6B6D72)),
+                                    enabledBorder: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(5),
+                                        borderSide: BorderSide(
+                                            color: Color(0xFF6F73C8),
+                                            width: 2)),
+                                    focusedBorder: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(5),
+                                        borderSide: BorderSide(
+                                            color: Color(0xFF6F73C8),
+                                            width: 2.5)),
+                                  )),
+                            ),
+                          ],
+                        ),
+                        Text(
+                          '    Detail',
+                          style: TextStyle(
+                              color: Colors.white, fontSize: height * 0.022),
+                        ),
+                        Container(
+                          height: height*0.085,
+                          width: width*0.83,
+                          margin: EdgeInsets.only(left: 17,top: 5,bottom: 8),
+                          child: TextFormField(
+                              controller: controller5,
+                              style: TextStyle(color: Colors.white),
+                              decoration: InputDecoration(
+                                hintText: '  Detail',
+                                hintStyle:
+                                    TextStyle(color: Color(0xFF6B6D72)),
+                                enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                    borderSide: BorderSide(
+                                        color: Color(0xFF6F73C8), width: 2)),
+                                focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                    borderSide: BorderSide(
+                                        color: Color(0xFF6F73C8),
+                                        width: 2.5)),
+                              )),
+                        ),
+                      ],
+                    );
+  }
 }
+
+class expModel {
+  TextEditingController? txtComapny;
+  TextEditingController? txtJob;
+  TextEditingController? txtStart;
+  TextEditingController? txtEnd;
+  TextEditingController? txtDetail;
+
+  expModel({this.txtDetail, this.txtJob, this.txtEnd, this.txtStart,this.txtComapny});
+}
+
+List<expModel> expList = [
+  expModel(
+      txtComapny: txtComapny,
+      txtStart: txtStart,
+      txtEnd: txtEnd,
+      txtDetail: txtDetail,
+      txtJob: txtJob),
+];
+
+TextEditingController txtComapny = TextEditingController();
+TextEditingController txtJob = TextEditingController();
+TextEditingController txtStart = TextEditingController();
+TextEditingController txtEnd = TextEditingController();
+TextEditingController txtDetail = TextEditingController();

@@ -1,14 +1,19 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:resume_builder_app/home/utills/controllers/controllers.dart';
 
-class objective extends StatefulWidget {
-  const objective({super.key});
+class language extends StatefulWidget {
+  const language({super.key});
 
   @override
-  State<objective> createState() => _objectiveState();
+  State<language> createState() => _languageState();
 }
 
-class _objectiveState extends State<objective> {
+class _languageState extends State<language> {
+  void _clearText(int index) {
+    listOfLanguage[index].clear();
+  }
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -26,7 +31,7 @@ class _objectiveState extends State<objective> {
             )),
         backgroundColor: Color(0xFF363863),
         title: Text(
-          'Objective',
+          'Languages',
           style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w500,
@@ -44,26 +49,80 @@ class _objectiveState extends State<objective> {
       ),
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(15),
-            child: TextFormField(
-              //  controller: about.txtAddress,
-              style: TextStyle(color: Colors.white),
-              textInputAction: TextInputAction.next,
-              maxLines: 5,
-              controller: txtObjective,
-              decoration: InputDecoration(
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5),
-                    borderSide: BorderSide(color: Color(0xFF6F73C8), width: 2)),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5),
-                    borderSide: BorderSide(color: Color(0xFF6F73C8), width: 2)),
-                focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5),
-                    borderSide:
-                        BorderSide(color: Color(0xFF6F73C8), width: 2.5)),
-              ),
+          Expanded(
+            child: Container(
+              width: double.infinity,
+              child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Column(
+                      children: List.generate(
+                    listOfLanguage.length,
+                    (index) => Container(
+                      height: height * 0.280,
+                      width: double.infinity,
+                      padding: EdgeInsets.all(15),
+                      color: Color(0xFF363863),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Languages ${index + 1}',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: height * 0.025),
+                              ),
+                              IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      if (index != 0) {
+                                        listOfLanguage.removeAt(index);
+                                      } else {
+                                        _clearText(index);
+                                      }
+                                    });
+                                  },
+                                  icon: Icon(
+                                    Icons.delete,
+                                    color: Colors.white,
+                                    size: height * 0.035,
+                                  ))
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                '\n   Description',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: height * 0.025),
+                              ),
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 8.0, horizontal: 15),
+                            child: TextFormField(
+                                controller: listOfLanguage[index],
+                                style: TextStyle(color: Colors.white),
+                                textInputAction: TextInputAction.next,
+                                decoration: InputDecoration(
+                                  enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide: BorderSide(
+                                          color: Color(0xFF6F73C8), width: 2)),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide: BorderSide(
+                                          color: Color(0xFF6F73C8),
+                                          width: 2.5)),
+                                )),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ))),
             ),
           ),
           Container(
@@ -95,8 +154,8 @@ class _objectiveState extends State<objective> {
                   },
                   child: Container(
                     height: height * 0.055,
-                    width: width * 0.390,
-                    margin: EdgeInsets.only(top: 8, bottom: 8, left: 15),
+                    width: width * 0.450,
+                    margin: EdgeInsets.all(8),
                     decoration: BoxDecoration(
                         border: Border.all(color: Color(0xFF6F73C8), width: 2),
                         borderRadius: BorderRadius.circular(10)),
@@ -119,12 +178,15 @@ class _objectiveState extends State<objective> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pushNamed('/example');
+                    TextEditingController txtInterest = TextEditingController();
+                    setState(() {
+                      listOfLanguage.add(txtInterest);
+                    });
                   },
                   child: Container(
                     height: height * 0.055,
-                    width: width * 0.500,
-                    margin: EdgeInsets.only(top: 8, bottom: 8, left: 10),
+                    width: width * 0.450,
+                    margin: EdgeInsets.all(8),
                     decoration: BoxDecoration(
                         border: Border.all(color: Color(0xFF6F73C8), width: 2),
                         borderRadius: BorderRadius.circular(10)),
@@ -133,12 +195,11 @@ class _objectiveState extends State<objective> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.folder_copy_rounded,
+                          Icons.add,
                           color: Colors.white,
-                          size: height * 0.025,
                         ),
                         Text(
-                          '  Select Objecti...',
+                          '  Add',
                           style: TextStyle(
                               color: Colors.white, fontSize: height * 0.025),
                         ),
@@ -155,8 +216,8 @@ class _objectiveState extends State<objective> {
                     width: double.infinity,
                     margin: EdgeInsets.only(
                         top: height * 0.015,
-                        right: width * 0.035,
-                        left: width * 0.035),
+                        right: width * 0.030,
+                        left: width * 0.030),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: Color(0xFF6F73C8),
