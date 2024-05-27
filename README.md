@@ -1,7 +1,7 @@
+<img src="https://github.com/sadhana5953/resume_builder_app/assets/148869257/a4a95216-2b55-4597-b0d3-4b797c3c83a4" height=22% width=32%>
 <img src="https://github.com/sadhana5953/resume_builder_app/assets/148869257/ad7e5a89-2e8e-4669-98cc-f7241dcc768c" height=22% width=32%>
 <img src="https://github.com/sadhana5953/resume_builder_app/assets/148869257/e42978c4-2202-4463-9011-c0bca91bec84" height=22% width=32%>
 <img src="https://github.com/sadhana5953/resume_builder_app/assets/148869257/fa4febd6-2e61-423e-9f49-a00e0b94bde6" height=22% width=32%>
-
 <img src="https://github.com/sadhana5953/resume_builder_app/assets/148869257/9166f0b2-efd9-44fc-abbf-705d765603ff" height=22% width=32%>
 <img src="https://github.com/sadhana5953/resume_builder_app/assets/148869257/d73d1bb3-5ac5-40da-867a-1aedf771337d" height=22% width=32%>
 <img src="https://github.com/sadhana5953/resume_builder_app/assets/148869257/5625b302-5135-404f-a837-616fc6164e90" height=22% width=32%>
@@ -16,6 +16,8 @@
 <img src="https://github.com/sadhana5953/resume_builder_app/assets/148869257/4019685a-d0d2-4bd0-b163-57ecdc7a591c" height=22% width=32%>
 <img src="https://github.com/sadhana5953/resume_builder_app/assets/148869257/2a12b8b5-e8d1-42e1-8cfd-d0243524b444" height=22% width=32%>
 <img src="https://github.com/sadhana5953/resume_builder_app/assets/148869257/f0d93f38-4b10-4e37-ba73-82ca0b89ecbb" height=22% width=32%>
+
+https://github.com/sadhana5953/resume_builder_app/assets/148869257/8081cab8-4715-4f15-b6fd-9d56961d3fee
 
 
 
